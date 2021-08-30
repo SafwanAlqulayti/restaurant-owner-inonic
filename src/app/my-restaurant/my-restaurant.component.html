@@ -1,0 +1,51 @@
+<div fxLayoutAlign="center center">
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" fxFlexFull fxFlex="75">
+
+   <!-- orderNumber Column -->
+   <ng-container matColumnDef="orderNumber">
+     <th mat-header-cell *matHeaderCellDef mat-sort-header> orderNumber. </th>
+     <td mat-cell *matCellDef="let element"> {{element.orderNumber}} </td>
+   </ng-container>
+ 
+   <!-- id Column -->
+   <!-- <ng-container matColumnDef="id">
+     <th mat-header-cell *matHeaderCellDef mat-sort-header> id </th>
+     <td mat-cell *matCellDef="let element">  </td>
+   </ng-container> -->
+ 
+   <!-- price Column -->
+   <ng-container matColumnDef="price">
+     <th mat-header-cell *matHeaderCellDef mat-sort-header> price </th>
+     <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+   </ng-container>
+ 
+   <!-- status Column -->
+   <ng-container matColumnDef="status">
+     <th mat-header-cell *matHeaderCellDef mat-sort-header> status </th>
+     <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+   </ng-container>
+ 
+   <ng-container matColumnDef="changeStatus">
+     <th mat-header-cell *matHeaderCellDef mat-sort-header> changeStatus </th>
+     <td mat-cell *matCellDef="let element">
+       <!-- <button mat-button color="primary" (click)="accept()">accept</button>
+       <button mat-raised-button color="accent" (click)="wait()">hold</button>
+       <button mat-button color="warn" (click)="reject('s')">reject</button> -->
+       <input type="hidden" id="Id" name="custId" value={{element.Id}}>
+
+       <a [routerLink]="['/order' , element.id]" href="">Read More</a>
+
+
+       {{element.changeStatus}} </td>
+   </ng-container>
+   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+ </table>
+
+ <!-- <mat-paginator #paginator
+ [length]="dataSource.data.length"
+ [pagIndex]="0"
+ [pageSizeOptions]="[25,50,100]">
+</mat-paginator> -->
+
+</div>
