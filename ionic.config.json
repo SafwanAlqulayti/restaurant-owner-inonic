@@ -1,0 +1,7 @@
+{
+  "name": "restaurant-owner-ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
